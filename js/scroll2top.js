@@ -1,5 +1,5 @@
 $(function(){
-	var tophtml="<div id=\"izl_rmenu\" class=\"izl-rmenu\"><a href=\"tencent://Message/?Uin=12002692&websiteName=terraco.com.cn=&Menu=yes\" class=\"abtn btn-qq\"></a><div class=\"abtn btn-wx\"><div class=\"pic\"></div></div><a href=\"/terraco/contact/\"><div class=\"abtn btn-phone\"><div class=\"phone\">广东 8008309983<br>上海 8009881306</div></div><div class=\"abtn btn-top\"></div></div></a>";
+	var tophtml="<div id=\"izl_rmenu\" class=\"izl-rmenu\"><a href=\"tencent://Message/?Uin=461376&websiteName=fullstacks.co=&Menu=yes\" class=\"abtn btn-qq\"></a><div class=\"abtn btn-wx\"><div class=\"pic\"></div></div><a href=\"/terraco/contact/\"><div class=\"abtn btn-phone\"><div class=\"phone\">广东 8008309983<br>上海 8009881306</div></div><div class=\"abtn btn-top\"></div></div></a>";
 	$("#scrolltop").html(tophtml);
 	$("#izl_rmenu").each(function(){
 		$(this).find(".btn-wx").mouseenter(function(){
