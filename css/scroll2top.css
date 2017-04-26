@@ -47,6 +47,7 @@
 .izl-rmenu .btn-phone {
 	background: url(../img/r_phone.png) 0px 0px no-repeat;
 	background-color: #fbb01f;
+	display: none;
 }
 .izl-rmenu .btn-phone:hover {
 	background-color: #ff811b;
