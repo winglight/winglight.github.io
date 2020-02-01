@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44bed1bd-12c5-4cf9-b38b-c265c9f9db0e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/docs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/ie.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/kwicks-slider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/scroll2top.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/touchTouch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/404.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/bg-content.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/bg-content2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-featured-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-featured-02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-featured-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/blog-featured-04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/border-horiz.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/glyphicons-halflings-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/glyphicons-halflings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/header-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/image-blank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/indicator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/indicator1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/magnifier.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/map.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/marker-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/marker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/prev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/r_phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/r_qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/r_top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/r_wx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/service-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/service-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/service-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/service-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/service-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/service-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/slide-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/slide-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/slide-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/slide-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/slide-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/soc-icon-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/soc-icon-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/soc-icon-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/soc-icon-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/soc-icon-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/spinner.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/spinner1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/weixin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/forms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/html5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.easing.1.3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.flexslider-min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.kwicks-1.5.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.preloader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.scrollTo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/scroll2top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/superfish.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/touchTouch.jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/docs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/ie.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/kwicks-slider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/scroll2top.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/touchTouch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.nginx-debian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/404.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/arrows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg-content.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg-content2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-featured-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-featured-02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-featured-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/blog-featured-04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/border-horiz.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/glyphicons-halflings-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/glyphicons-halflings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/header-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/image-blank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/indicator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/indicator1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/magnifier.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/map.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/marker-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/marker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/outsourcing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/prev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/procedure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/r_phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/r_qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/r_top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/r_wx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/service-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/service-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/service-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/service-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/service-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/service-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/slide-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/soc-icon-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/soc-icon-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/soc-icon-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/soc-icon-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/soc-icon-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/spinner.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/spinner1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/tm/plus-minus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/tm/pro_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/tm/tm_home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/weixin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/work/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/forms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.easing.1.3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.flexslider-min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.kwicks-1.5.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.preloader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.scrollTo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/scroll2top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/superfish.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/touchTouch.jquery.js" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="1048">
+                <caret line="2310" column="10" selection-start-line="2310" selection-start-column="10" selection-end-line="2310" selection-end-column="10" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/about.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="48">
+                <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2020-02-01-welcome.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2020-02-01-welcome.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="21" selection-start-column="21" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/about.md" />
+        <option value="$PROJECT_DIR$/_posts/2020-01-14-welcome.md" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1290" />
+    <option name="y" value="23" />
+    <option name="width" value="2104" />
+    <option name="height" value="1333" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="winglight.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="winglight.github.io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="winglight.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="winglight.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.prettier" value="true" />
+    <property name="node.js.path.for.package.prettier" value="project" />
+    <property name="node.js.selected.package.prettier" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44bed1bd-12c5-4cf9-b38b-c265c9f9db0e" name="Default" comment="" />
+      <created>1580523279606</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580523279606</updated>
+      <workItem from="1580523281738" duration="848000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="848000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1290" y="23" width="2104" height="1333" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497537" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="JSON Viewer" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1048">
+            <caret line="2310" column="10" selection-start-line="2310" selection-start-column="10" selection-end-line="2310" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="48">
+            <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2020-02-01-welcome.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="21" selection-start-column="21" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
