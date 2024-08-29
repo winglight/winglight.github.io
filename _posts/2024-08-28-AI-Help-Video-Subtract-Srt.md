@@ -6,6 +6,7 @@
 * 通过增加新的功能，可以不断迭代完善软件
 * 通过复制输出的异常，可以在一定程度上由AI修复
 * 最佳的AI编程实践，是有基础的程序员+AI协同编程，能够极大提高效率，如果是完全0基础，碰到bug无法解决就难以进行
+* 代码开源仓库：[VideoExtractSub](https://github.com/winglight/VideoExtractSub)
 
 ## 操作视频（TODO）
 
