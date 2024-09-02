@@ -1,4 +1,4 @@
-# AI助我写代码（3）：Chrome浏览器插件-Lookup（查单词）
+# AI助我写代码（4）：Chrome浏览器插件-Lookup（查单词）
 
 ## 综述
 
