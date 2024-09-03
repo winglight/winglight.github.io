@@ -1,4 +1,4 @@
-# AI助我写代码（4）：Chrome浏览器插件-Lookup（查单词）
+# AI助我写代码（5）：AI自动解析剪贴板文本及图片（Clipboard AI）
 
 ## 综述
 
