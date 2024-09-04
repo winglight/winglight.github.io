@@ -4,224 +4,100 @@
 
 * 因为有时不方便“看”电子书，而朗读功能只在有限的App中提供，所以我想做一个基于网页，本地运行的朗读电子书工具
 * 经过反复尝试，AI（Claude3.5）实现了大部分代码，不过，可能这次功能比较复杂，所以调试bug花了很长时间,而且有多处bug只能自己解决
-* 代码开源仓库：[Clipboard AI](https://github.com/winglight/clipboard_ai)
+* 代码开源仓库：[Epub Local Reciter](https://github.com/winglight/epub-local-reciter)
 
 ## 操作视频（TODO）
 
 ## 需求
-1. 基本上，我设想的软件功能很简单，就是用AI解析剪贴板内容
-2. 麻烦的地方在于：一是需要准确描述UI布局，二是涉及到AI的配置信息需要单独窗口，三是交互操作比之前的软件要复杂
+1. 起初，我设想的软件功能很简单，就是在网页上能够朗读文本，然后自动翻页
+2. 后来发现，网页自动翻页其实很麻烦，不然chrome可能早就实现这个功能了——现在已经有朗读功能，不过这个功能很多网页都不支持
+3. 而且，我有开发另外一个软件可以从网页爬取生成epub电子书，所以最终的目标改为朗读epub电子书
    
 ## 操作步骤
 
-1. 一开始我简单描述了一下界面和功能，提示词如下：
+1. 一开始我只想实现一个可以引入html页面的js库，提示词如下：
    ```
-   基于以下描述，开发一个基于python的桌面软件：
-   1. 软件的主要功能是监听剪贴板的内容，如果是图片，则发送图片给AI，提示词是：“解释此图”，AI返回结果，将结果显示在软件上。
-   2. 软件的主窗口左边是剪贴板历史列表，可以是图片，也可以是文字，当选中其中一条时，右边上方显示剪贴板内容，下方显示AI返回的结果，如果是文字，提供一个按钮，需要用户主动点击后才发给AI，提示词是：“解释以下内容：”。
-   3. 软件使用的AI需要提供配置界面，支持两种AI，一种是OpenAI的ChatGPT，另一种是ollama，并且可以设置默认使用模型，由于可以选择以上两种AI中的不同模型，需要支持保存多个配置，在主窗口提供AI模型的切换下拉框。
-   4. 软件界面需要精致、美观、可调整大小、可缩小到系统托盘，并且支持自定义皮肤。
+   基于html页面，实现页面内容的朗读功能，具体的方式是，在正常页面中，引入对应的js文件，然后在页面上显示一个浮动按钮，点击按钮后朗读页面内容
+   并增加以下功能：
+   1. 给按钮增加播放、暂停两种状态的切换，并且按钮上需要有不同的图标表示当前状态。
+   2. 除了播放按钮，增加一个设置按钮，可以设置所使用的声音音源，可以调整音量，可以设置语速，语速分为四档：0.5、1（原速）、1.5、2
+   3. 播放支持回调功能，设置回调方法，在当前内容播放完毕后，调用回调方法刷新页面，然后自动播放新的页面内容
+   ```
+   Claude生成了一个html页面以及一个js文件
+
+2. 基本功能是可以使用的，我想额外加一点功能，提示词如下：
+
+   ```
+   增加功能：
+   1. 增加停止按钮，点击后重新初始化状态和tts引擎
+   2. 保存设置项的值到浏览器的local storage，并且在打开网页时自动加载
    ```
 
-2. Claude只是生成了项目的文件目录结构，包括了6个python文件，我要求它生成全部代码，提示词如下：
-
+3. 考虑到epub更容易实现朗读功能，我增加了本地浏览、朗读epub电子书的功能，提示词如下：
    ```
-   提供以上python代码的文件下载
-   ```
-   Claude3.5不像chatgpt可以直接提供文件的下载链接，因此只能手动复制全部代码，并且建立对应的项目目录结构和文件。
-
-3. 为了保存查询历史，增加了本地存储的新功能，提示词如下：
-   ```
-   基于sqlite实现main_window.py中的剪贴板历史数据保存以及配置信息保存，图片则保存在clips目录下
+   增加以下功能：
+   1. 在页面上增加一个上传epub文件的功能
+   2. 上传后自动在页面上加载epub内容
+   3. 每次显示epub一个章节的全部内容
+   4. 点击播放按钮后，播放完一个章节内容之后，自动翻页到下一个章节
    ```
 
-4. 之前的代码并没有真的实现AI调用的代码，提示词如下：
+4. 运行之后报错，js我不熟，还是让AI直接debug，提示词如下：
    ```
-   实现ai_interface.py中调用AI的方法以及main_window.py中调用AI的方法
-   ```
-
-5. Bug太多了，需要自己检查代码的运行情况，提示词如下：
-   ```
-   在ai_interface.py中，应该使用main_window.py中加载好的AI配置信息
+   上传epub文件后，报错：
+   TypeError: Cannot read properties of undefined (reading 'innerHTML')
+      at text-to-speech.js:190:38
    ```
 
-6. 只实现了openai的配置，还要支持ollama，提示词如下：
+5. 另外增加了几个交互功能，提示词如下：
    ```
-   send_to_ollama方法也要使用配置信息进行AI调用
+   增加功能：按左右箭头键时，可以在章节间导航，并且在页面左面增加章节列表，同样可以直接导航到对应章节
    ```
-7. 我发现几次修改后的代码都只是部分，需要一个完整版本，提示词如下：
+
+6. 然后又报错了，提示词如下：
    ```
-   给出前面修改过的main_window.py的最终完整代码
+   加载epub出错：
+   TypeError: Cannot read properties of undefined (reading 'display')
+      at TextToSpeechPlayer.displayChapter (text-to-speech.js:239:29)
+      at text-to-speech.js:201:22
    ```
-8. 需要一个requirements，提示词如下：
+7. 这问题AI无法解决，我只好自己检查了一遍代码，重新给它具体的错误点，提示词如下：
    ```
-   给出requirements.txt的完整内容
+   由于标签“epub-content”里依然会有其他div标签嵌套，所以以下代码无法正常获取到文本内容：
+   const text = contentElement.innerText;
    ```
-9. 运行代码后，发现新的异常，提示词如下：
+8. 这个问题解决之后，又出现了新的问题，提示词如下：
    ```
-   运行报错，需要输出DatabaseManager的完整代码：
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 12, in <module>
-      main()
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 7, in main
-      window = MainWindow()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 53, in __init__
-      self.load_history()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 110, in load_history
-      clips = self.db_manager.get_all_clips()
-   AttributeError: 'DatabaseManager' object has no attribute 'get_all_clips'
+   点击播放按钮后，以下代码报错：
+   this.book.spine.get(chapter.href).then(item => {
+   报错信息：
+   TypeError: this.book.spine.get(...).then is not a function
+      at text-to-speech.js:317:47
+      at new Promise (<anonymous>)
+      at TextToSpeechPlayer.getCurrentChapterText (text-to-speech.js:305:16)
+      at TextToSpeechPlayer.play (text-to-speech.js:280:22)
+      at TextToSpeechPlayer.togglePlayPause (text-to-speech.js:150:18)
+      at HTMLButtonElement.<anonymous> (text-to-speech.js:42:62)
    ```
-10. 再次运行，冒出新的bug，提示词如下：
+   以上几个问题都是由于AI使用的epub.js版本跟最新的版本不兼容导致，所以我只好自己去这个开源项目的文档里找如何使用的方法，好在比较简单，我自己解决了这个打开电子书的问题。
+9. 我把改好的js文件加到附件，提出了新的功能需求，提示词如下：
    ```
-   运行报错，需要输出ClipboardMonitor的完整代码：
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 12, in <module>
-      main()
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 7, in main
-      window = MainWindow()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 59, in __init__
-      self.clipboard_monitor.text_copied.connect(self.on_text_copied)
-   AttributeError: 'ClipboardMonitor' object has no attribute 'text_copied'
+   基于附件里的代码，修正无法使用左右箭头按键导航章节的问题，以及增加使用空格键翻页的功能
+   ```
+10. 加上了js和html两个文件作为附件，再次提出界面修改需求，提示词如下：
+   ```
+   基于附件代码，增加以下功能：
+   1. 修改页面，将选择上传文件按钮挪到上方区域（包括上传epub文件按钮、epub文件URL地址——可以基于这个地址打开epub，下拉框显示epub文件列表——基于输入过的epub文件URL历史记录，且可以隐藏/打开）
+   2. 当开始播放语音后，如果开始播放翻页后的内容，epub阅读区域也需要同步翻页当前进度
+   3. 以上前端页面可以在本地local storage保存阅览记录，并且在选择epub文件后，自动跳转到前一次的阅览位置
    ```
    
-11. 继续改进，提示词如下：
+11. 增加了新功能之后，AI的代码又把布局忘记了，提示词如下：
    ```
-   有三个问题需要改进：
-   1. 剪贴板监听时，如果图片或文本为空，则不需要增加对应的一条历史记录
-   2. 主界面打开时，如果没有配置任何AI模型，则自动弹出配置页面
-   3. 在主界面增加菜单，用于打开配置页面
-   ```
-12. 主界面的代码改动很多，提交了当前版本代码作为附件，提示词如下：
-   ```
-   main_window问题很多，请根据附件重新增加2、3的功能
+   页面有以下问题：
+   1. 之前加载epub后，左边是目录，缺少了这一块页面
+   2. 之前的左右方向键和空格翻页功能都没了
+   3. load url之后，下拉框的选项默认选中，应该是默认选中空项
    ```
 
-13. 配置界面的代码依然缺少，提示词如下：
-   ```
-   生成ConfigDialog的代码
-   ```
-
-14. 运行后又报错，提示词如下：
-   ```
-   报错：
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 3, in <module>
-      from ui.main_window import MainWindow
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 6, in <module>
-      from PyQt6.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
-   ImportError: cannot import name 'QAction' from 'PyQt6.QtWidgets' (/Users/root/opt/miniconda3/lib/python3.9/site-packages/PyQt6/QtWidgets.abi3.so)
-   ```
-
-15. AI调用的代码依然有问题，不知道为什么总是不能正确理解如何获取配置信息，加了附件ai_interface.py，提示词如下：
-   ```
-   配置窗口中，AI模型的Type应该是openai和ollama，而后者基础的配置信息是：api_url、model，参考附件
-   ```
-
-16. 继续添加交互功能，提示词如下：
-   ```
-   主界面窗口中，左边的剪贴板历史需要提供：全部清除（Clear）、使用删除键（DEL）删除选中记录，这两个功能
-   ```   
-
-17. 运行再次报错，加了附件main_windows.py，提示词如下：
-   ```
-   参考附件代码，解决以下报错：
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 12, in <module>
-      main()
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 7, in main
-      window = MainWindow()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 53, in __init__
-      self.init_ui()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 88, in init_ui
-      left_panel.addWidget(clear_button)
-   AttributeError: 'QWidget' object has no attribute 'addWidget'
-   ```
-
-18. 运行再次报错，加了相关三个代码附件main_windows.py、config_manager.py, config_dialog.py，提示词如下：
-   ```
-   基于附件，解决以下问题：
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 12, in <module>
-      main()
-   File "/Users/root/work/opensource/clipboard_ai/main.py", line 7, in main
-      window = MainWindow()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 65, in __init__
-      self.check_ai_config()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 242, in check_ai_config
-      self.open_config_dialog()
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 245, in open_config_dialog
-      config_dialog = ConfigDialog(self.db_manager)
-   File "/Users/root/work/opensource/clipboard_ai/ui/config_dialog.py", line 15, in __init__
-      self.init_ui()
-   File "/Users/root/work/opensource/clipboard_ai/ui/config_dialog.py", line 24, in init_ui
-      self.config_list.itemClicked.connect(self.load_config)
-   AttributeError: 'ConfigDialog' object has no attribute 'load_config'
-   ```
-
-19. 对于配置的细节，AI理解有困难，可能是因为openai和ollama的配置项不一样，提示词如下：
-   ```
-   解决问题：ConfigDialog中，选择ollama时，没有api_url的设置项
-   ```
-
-20. 配置界面还有几个细节问题需要解决，提示词如下：
-   ```
-   config_dialog的界面中，左边列表需要选中后，在右边显示对应的配置信息，而且右边点击save保存时，不能每次都是新建，而是需要通过名字判断是否存在对应配置，如果有就更新，如果没有才是新建
-   ```
-
-21. 配置界面运行起来还有bug，提示词如下：
-   ```
-   配置页面中，点击左边列表选项后报错：
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/ui/main_window.py", line 163, in change_ai_model
-      config_id = self.ai_config_combo.itemData(index)
-   AttributeError: 'MainWindow' object has no attribute 'ai_config_combo'
-   Traceback (most recent call last):
-   File "/Users/root/work/opensource/clipboard_ai/ui/config_dialog.py", line 97, in load_config
-      config = self.db_manager.get_config(self.current_config_id)
-   AttributeError: 'DatabaseManager' object has no attribute 'get_config'
-   ```
-
-22. 配置界面运行起来还有bug，加了附件config_dialog.py，提示词如下：
-   ```
-   根据附件代码，解决以下问题：
-   D Inhibit
-   Traceback (most recent call last):
-   File "/Users/chenyu/work/opensource/clipboard_ai/ui/config_dialog.py", line 170, in save_config
-      self.load_config(items[0])
-   File "/Users/chenyu/work/opensource/clipboard_ai/ui/config_dialog.py", line 109, in load_config
-      self.ollama_api_url_input.setText(other_settings_dict.get('api_url', ''))
-   AttributeError: 'str' object has no attribute 'get'
-   ```
-
-23. 这次是保存配置时报错，我在考虑是否有其他方式，提示词如下：
-   ```
-   因为以下代码在保存时，就是存为了str类型：
-   other_settings = json.dumps({'api_url': api_url})
-   因此，在以下代码试图加载json对象时，报错：AttributeError: 'str' object has no attribute 'get'
-   other_settings_dict = json.loads(other_settings)
-
-   是否有其他方法，进行json对象的保存和加载？
-   ```
-
-24. 现在只剩两个小问题了，提示词如下：
-   ```
-   根据附件中的代码，修改以下问题：
-   1. 左边clear按钮只是清楚了界面中的数据，并没有删除数据库中的历史记录
-   2. 点击右边的“send to AI”按钮时，提示没有选择AI模型，但是其实已经有选择
-   ```
-
-25. 因为Claude使用了异步线程去调用AI服务，所以这里的问题比较复杂，交互了多次才解决，提示词顺序如下：
-    ```
-    基于附件代码，运行后，self.threadpool.start(worker)，这句代码没有执行AIWorker的run方法，请解决
-    ```
-
-    ```
-    以下这段代码中，因为payload是dict类型，所以报错，请修正：
-      async with aiohttp.ClientSession() as session:
-                  async with session.post(url, data=payload) as response:
-                     print(url, payload)
-      报错信息：
-      Error: the JSON object must be str, bytes or bytearray, not dict
-    ```
-
-**这次的开发时间达到四五个小时，期间需要反复运行重试，还要解决连接不同类型AI的问题以及数据存储问题，看来AI还有很大的进化之路要走**
+**至此基本上实现了全部的功能，我试了一下，还可以选择朗读的口音——中英文都支持**
