@@ -9,146 +9,132 @@
 ## 操作视频（TODO）
 
 ## 需求
-1. 因为这次的功能比较复杂，我先从后端描述几个基本的业务对象的增删改查功能
-2. 分类、账户、交易三个业务生成基本的增删改查功能
-3. 基于交易的统计查询功能
+1. 前端主要有三个功能：统计查询、基础设置、记账
+2. 其中记账涉及到用户录入，除了普通的表单录入，还想采用AI处理自然语言实现记账
    
 ## 操作步骤
 
-1. 首先我想实现一套完整的个人记账服务的方案，提示词如下：
+1. 首先把页面基本功能描述一遍，并附上后台python代码，提供接口信息，提示词如下：
    ```
-   基于python flask开发一个用于个人记账的web服务，实现以下需求：
-   1. 维护消费的一二级分类，收入的一二级分类信息
-   2. 维护账户信息，例如：银行账户、证券账户、微信、支付宝、现金等，支持不同货币类型并自动转换为主货币（人民币）
-   3. 按时间、消费/收入、一二级分类、金额、项目、记帐人、账户、备注这几个字段保存消费或收入记录
-   4. 提供按天、周、月、年的统计查询功能，x轴是时间周期，y轴包括以下几个维度：总资产、消费/收入、一二级分类
-   5. 提供按天、周、月、年的统计查询功能，x轴是时间周期，y轴是账户中的资金
+   基于附件中的后台代码接口，实现以下前端页面的功能：
+   1. 主界面是统计查询页面，默认按日显示当天的总消费、总收入和账户总余额（所有账户总和），以及当天的交易明细列表
+   2. 主界面如果切换到周、月、年，则按对应日期范围统计显示，并且增加按天统计的账户总余额折线图
+   3. 主界面按日、周、月、年显示时，可以通过左右箭头的按钮导航到前一/后一的日、周、月、年
+   4. 前端页面需要兼容桌面和手机的显示和导航
+   5. 主界面可以通过点击浮动的加号按钮（右下角）进入记账页面，在记账页面可以选择表单（分类需要是两级tag联动的方式选择，账户需要自动选中当前用户的默认账户）或聊天两种输入方式
+   6. 主界面可以通过点击浮动的齿轮按钮（右上角）进入设置页面，可以分别设置消费/收入的一二级分类、账户和当前用户的token，如果是用户第一次打开，需要弹出框让用户输入token，并保存在浏览器的local storage
    ```
-   结果Claude生成了完整的数据结构和python代码，复制到一个python文件里就能运行起来。
+   Claude生成了几个react js代码。
 
-2. 由于第一次生成的代码只有单一的核心业务接口，所以我要求AI生成完整的CRUD接口，提示词如下：
+2. 我并不熟悉前端架构，只能继续要求AI提供基础指导，提示词如下：
 
    ```
-   增加以下接口：
-   1. 维护消费/收入分类除了现在的新增接口，还需要删除（软删除）、修改、查询（列表查询和基于id的查询），其中列表查询需要支持返回一级分类及基于一级分类返回二级分类的功能
-   2. 维护账户信息除了现在的新增接口，还需要删除（软删除）、修改、查询（列表查询和基于id的查询）
-   3. transaction除了现在的新增接口，还需要删除（软删除）、修改、查询（支持翻页的列表和基于id、时间范围、列表等条件的查询）
+   如何建立上面所说的react, react-chartjs-2的前端框架的脚手架代码
    ```
+   这次AI解释非常详细，我跟着照做就完成了整个项目的搭建和代码。
 
-3. 为了方便在postman中测试接口，我要求AI生成curl，提示词如下：
+3. 运行起来之后报了很多错误，提示词如下：
    ```
-   基于以上所有接口，生成对应的curl，并为每个字段生成看起来真实的值
-   ```
-   实际生成之后我发现要一个个导入挺麻烦，还不方便设置变量，于是我在postman里先生成CRUD模版，再复制黏贴
+   运行后报错：
+   Compiled with problems:
+   ×
+   ERROR in ./src/components/SettingsPage.js 6:0-28
+   Module not found: Error: Can't resolve './SettingsPage.css' in '/Users/user/work/opensource/personal-finance-app/src/components'
+   ERROR in ./src/components/StatisticsPage.js
+   Module build failed (from ./node_modules/babel-loader/lib/index.js):
+   SyntaxError: /Users/user/work/opensource/personal-finance-app/src/components/StatisticsPage.js: JSX attributes must only be assigned a non-empty expression. (71:19)
 
-4. 运行之后报错，提示词如下：
+   69 |       )}
+   70 |       {period !== 'day' && stats && (
+   > 71 |         <Line data={/* Chart data */} options={/* Chart options */} />
+      |                    ^
+   72 |       )}
+   73 |       <div className="transaction-list">
+   74 |         {transactions.map(transaction => (
+      at constructor (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:362:19)
+      at FlowParserMixin.raise (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:3260:19)
+      at FlowParserMixin.jsxParseAttributeValue (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6657:16)
+      at FlowParserMixin.jsxParseAttribute (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6704:38)
+      at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6718:28)
+      at FlowParserMixin.jsxParseOpeningElementAt (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6713:17)
+      at FlowParserMixin.jsxParseElementAt (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6737:33)
+      at FlowParserMixin.jsxParseElement (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6800:17)
+      at FlowParserMixin.parseExprAtom (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6810:19)
+      at FlowParserMixin.parseExprSubscripts (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10584:23)
+      at FlowParserMixin.parseUpdate (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10569:21)
+      at FlowParserMixin.parseMaybeUnary (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10549:23)
+      at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10403:61)
+      at FlowParserMixin.parseExprOps (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10408:23)
+      at FlowParserMixin.parseMaybeConditional (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10385:23)
+      at FlowParserMixin.parseMaybeAssign (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10348:21)
+      at /Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:5631:39
+      at FlowParserMixin.tryParse (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:3598:20)
+      at FlowParserMixin.parseMaybeAssign (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:5631:18)
+      at /Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10318:39
+      at FlowParserMixin.allowInAnd (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:11933:12)
+      at FlowParserMixin.parseMaybeAssignAllowIn (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10318:17)
+      at FlowParserMixin.parseParenAndDistinguishExpression (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:11195:28)
+      at FlowParserMixin.parseParenAndDistinguishExpression (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:5724:18)
+      at FlowParserMixin.parseExprAtom (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10851:23)
+      at FlowParserMixin.parseExprAtom (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6815:20)
+      at FlowParserMixin.parseExprSubscripts (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10584:23)
+      at FlowParserMixin.parseUpdate (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10569:21)
+      at FlowParserMixin.parseMaybeUnary (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10549:23)
+      at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10403:61)
+      at FlowParserMixin.parseExprOpBaseRightExpr (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10489:34)
+      at FlowParserMixin.parseExprOpRightExpr (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10484:21)
+      at FlowParserMixin.parseExprOp (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10451:27)
+      at FlowParserMixin.parseExprOp (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10457:21)
+      at FlowParserMixin.parseExprOp (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10457:21)
+      at FlowParserMixin.parseExprOps (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10412:17)
+      at FlowParserMixin.parseMaybeConditional (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10385:23)
+      at FlowParserMixin.parseMaybeAssign (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10348:21)
+      at FlowParserMixin.parseMaybeAssign (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:5682:18)
+      at FlowParserMixin.parseExpressionBase (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10302:23)
+      at /Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10298:39
+      at FlowParserMixin.allowInAnd (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:11933:12)
+      at FlowParserMixin.parseExpression (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10298:17)
+      at FlowParserMixin.jsxParseExpressionContainer (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6683:31)
+      at FlowParserMixin.jsxParseElementAt (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6762:36)
+      at FlowParserMixin.jsxParseElement (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6800:17)
+      at FlowParserMixin.parseExprAtom (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:6810:19)
+      at FlowParserMixin.parseExprSubscripts (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10584:23)
+      at FlowParserMixin.parseUpdate (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10569:21)
+      at FlowParserMixin.parseMaybeUnary (/Users/user/work/opensource/personal-finance-app/node_modules/@babel/parser/lib/index.js:10549:23)
+   ERROR in ./src/components/TransactionForm.js 6:0-31
+   Module not found: Error: Can't resolve './TransactionForm.css' in '/Users/user/work/opensource/personal-finance-app/src/components'
+   ERROR
+   [eslint] 
+   src/components/StatisticsPage.js
+   Line 71:19:  Parsing error: JSX attributes must only be assigned a non-empty expression. (71:19)
    ```
-   报错：
-   Traceback (most recent call last):
-   File "/Users/chenyu/work/opensource/Personal-Finance/main.py", line 6, in <module>
-      from flask_sqlalchemy import Pagination
-   ImportError: cannot import name 'Pagination' from 'flask_sqlalchemy' (/Users/chenyu/opt/miniconda3/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py)
-   ```
-   这是个简单问题，删除import就解决了
+   改完之后，可以正常运行。
 
-**此时我发现AI的局限性：对于后端应用，有很多小问题不值得一遍遍的问AI来解决，特别是要描述清楚需求，有这个时间自己早已经解决**
+4. 后端地址默认使用了同样的url，所以还需要修改，提示词如下：
+   ```
+   如何统一修改后台接口的地址
+   ```
+   AI提供了四种方式，我最终选择了AXIOS
 
-5. 我发现对于一二级分类没有一个统一的获取入口，于是新增了一个接口，提示词如下：
+5. 我把所有JS代码文件都上传，要求AI帮我改好，提示词如下：
    ```
-   新增一个接口，功能如下：
-   1. 获取全部的category（未软删）
-   2. 数组中的一级对象仅包括一级分类，而一级分类中加入一个子分类的字段，值是所有属于这个一级分类的二级分类
-   3. 可选条件是：type，区分消费和收入
-   ```
-
-6. 因为已经修改了一些问题，所以加上附件main.py，提示词如下：
-   ```
-   基于附件代码，增加以下功能：
-   1. 每个接口都需要通过token验证当前用户
-   2. 在config文件中配置：用户名称与token的配对信息，以及用户默认使用的account id
-   3. 在创建transaction的接口中，根据token判断当前用户给created_by赋值，并根据用户默认account给account_id赋值（前提是请求body中没有提供这个字段的值）
-   ```
-
-7. 我发现之前没有生成统计接口的curl，提示词如下：
-   ```
-   为统计查询功能接口生成curl
-   ```
-
-8. 然后调用统计接口时报错，提示词如下：
-   ```
-   统计功能报错：
-   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such function: date_trunc
-   [SQL: SELECT date_trunc(?, "transaction".date) AS period, "transaction".type AS transaction_type, sum("transaction".amount) AS total 
-   FROM "transaction" 
-   WHERE "transaction".date BETWEEN ? AND ? GROUP BY date_trunc(?, "transaction".date), "transaction".type]
-   [parameters: ('week', '2023-06-01 00:00:00.000000', '2024-09-30 00:00:00.000000', 'week')]
-   (Background on this error at: https://sqlalche.me/e/20/e3q8)
-   ```
-   然而这次AI的回复很抽象，我感觉不太对。
-
-9. 没法，我只能自己debug一下，找到了出错的代码然后给AI，要求它修改，提示词如下：
-   ```
-   当前的代码是这样的，请基于以下代码修复前面的问题：
-   def get_stats():
-      period = request.args.get('period', 'month')
-      start_date = datetime.strptime(request.args.get('start_date'), '%Y-%m-%d')
-      end_date = datetime.strptime(request.args.get('end_date'), '%Y-%m-%d')
-      
-      # 总资产统计
-      total_assets = db.session.query(func.sum(Account.balance)).scalar()
-      
-      # 收入支出统计
-      income_expense = db.session.query(
-         func.date_trunc(period, Transaction.date).label('period'),
-         Transaction.type,
-         func.sum(Transaction.amount).label('total')
-      ).filter(
-         Transaction.date.between(start_date, end_date)
-      ).group_by(
-         func.date_trunc(period, Transaction.date),
-         Transaction.type
-      ).all()
-      
-      # 分类统计
-      category_stats = db.session.query(
-         func.date_trunc(period, Transaction.date).label('period'),
-         Category.name,
-         func.sum(Transaction.amount).label('total')
-      ).join(Category).filter(
-         Transaction.date.between(start_date, end_date)
-      ).group_by(
-         func.date_trunc(period, Transaction.date),
-         Category.name
-      ).all()
-      
-      # 账户资金统计
-      account_stats = db.session.query(
-         func.date_trunc(period, Transaction.date).label('period'),
-         Account.name,
-         func.sum(Transaction.amount).label('total')
-      ).join(Account).filter(
-         Transaction.date.between(start_date, end_date)
-      ).group_by(
-         func.date_trunc(period, Transaction.date),
-         Account.name
-      ).all()
-      
-      return jsonify({
-         'total_assets': total_assets,
-         'income_expense': [{'period': i[0], 'type': i[1], 'total': i[2]} for i in income_expense],
-         'category_stats': [{'period': i[0], 'category': i[1], 'total': i[2]} for i in category_stats],
-         'account_stats': [{'period': i[0], 'account': i[1], 'total': i[2]} for i in account_stats]
-      })
-   ```
-10. 然后调用统计接口时报错，提示词如下：
-   ```
-   统计功能报错：
-   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such function: date_trunc
-   [SQL: SELECT date_trunc(?, "transaction".date) AS period, "transaction".type AS transaction_type, sum("transaction".amount) AS total 
-   FROM "transaction" 
-   WHERE "transaction".date BETWEEN ? AND ? GROUP BY date_trunc(?, "transaction".date), "transaction".type]
-   [parameters: ('week', '2023-06-01 00:00:00.000000', '2024-09-30 00:00:00.000000', 'week')]
-   (Background on this error at: https://sqlalche.me/e/20/e3q8)
+   将附件中的代码，从fetch的访问方式改为Axios，并且使用http://127.0.0.1:5000/作为基础URL
    ```
 
-**这次问题终于解决了，然而后面的开发任务还有很多，下次会生成前端页面看看效果**
+6. 连接后台接口成功，然后报错跨域问题，提示词如下：
+   ```
+   运行后，访问后台接口报错：CORS错误
+   ```
+
+7. 可能是之前的提示词过于抽象，我加入了console报错信息，提示词如下：
+   ```
+   依然报错：
+   Access to XMLHttpRequest at 'http://127.0.0.1:5000/stats?period=day&start_date=2024-09-07&end_date=2024-09-07' from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Credentials' header in the response is '' which must be 'true' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
+   ```
+   这次的确修复了CORS问题，然而界面非常简陋，还有很多bug，我并不是很满意，准备重新开发。
+
+8. 无论如何，我还是打算开源代码，所以需要readme，提示词如下：
+   ```
+   把以上的前端功能作为一个开源项目，攥写readme，说明项目是什么，如何做到，有什么优势，适合什么场景，安装指南，使用指南，要求使用markdown格式
+   ```
+   我发现Claude3.5没有chatgpt写得好，不过已经够用了。
