@@ -21,7 +21,7 @@
    3. 一个冥想大师，擅长冥想，熟悉如何达到冥想的状态，擅长处理各种思绪杂念
    ```
    我在langflow环境下的playground中试了一下，效果还不错，如图：
-   ![playground截屏](../images/screenshot.jpg)
+   ![playground截屏](/images/screenshot.jpg)
 
 2. 我希望把这个做成一个标准的聊天对话框的交互模式，经过多轮调研，我最终选择了langflow自带的widget，因为这个最简单、最方便部署。
    ```
@@ -48,6 +48,6 @@
    </html>
    ```
    直接在vscode中，启动“Go Live”，查看效果还不错：
-   ![playground截屏](../images/screenshot2.jpg)
+   ![playground截屏](/images/screenshot2.jpg)
 
 4. 然后是部署到服务器上，这里碰到的问题太多了，我就不一一列举了，其中有一个“无限重定向”的问题是AI帮忙解决的，而且定位很准，在CloudFlare中修改SSL设置就解决了。
